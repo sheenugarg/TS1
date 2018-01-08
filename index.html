@@ -1,0 +1,29 @@
+<html>
+  <head>
+    <script src="Libraries/angular.min.js"></script>
+    <script src="Libraries/angular-ui-router.js"></script>
+    <link rel="stylesheet" type="text/css" href="StyleSheets/mainStyleSheet.css">
+    <link rel="stylesheet" type="text/css" href="Libraries/bootstrap.css">
+    <link href="Libraries/angular-datepicker.css" rel="stylesheet" type="text/css" />
+    <script src="Libraries/bootstrap.js"></script>
+    <script src="module.js"></script>
+    <script src="route.js"></script>
+    <script src="Constants.js"></script>
+    <script src="Pages/Login/loginController.js"></script>
+    <script src="Pages/register/registerController.js"></script>
+    <script src="Pages/AddTask/addTaskController.js"></script>
+    <script src="Pages/ViewTask/ViewTaskController.js"></script>
+    <script src="Pages/EditTask/EditTaskController.js"></script>
+    <script src="loginTokenService.js"></script>
+    <script src="CustomDirectives/DeleteConfirmationDirective.js"></script>
+    <script src="EditDetailsService.js"></script>
+    <script src="Service/AllServices.js"></script>
+  </head>
+  <body ng-app="TaskSystem">
+    <script src="Libraries/angular-datepicker.js"></script>
+    <div>
+      <div ui-view="header"></div>
+      <div ui-view="body"></div>
+    </div>
+  </body>
+</html>

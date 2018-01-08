@@ -1,0 +1,38 @@
+<div>
+  <div>
+    <img src="images/loader.gif" ng-show="loader" class="loader">
+  </div>
+  <div class="panel-heading">
+           <div class="panel-title text-center">
+              <h1 class="title">Track Your Tasks Here</h1>
+            </div>
+  </div>
+  <div class="panel-heading AppMessages" ng-show="View_Task_Messages">
+          <input type="text" ng-model="ViewTaskMessages">
+  </div>
+  <div id="ViewTaskTable">
+    <table class="table table-condensed table-striped">
+      <thead>
+        <tr>
+          <th>Task Id<span class="glyphicon glyphicon-envelope"></span></th>
+          <th>Task Name</th>
+          <th>Task Date</th>
+          <th>Mark Task As Complete</th>
+          <th>Edit Task</th>
+          <th>Delete Task</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr ng-repeat="task in alltasks" class="{{GetClassOnTaskStatus(task.date,task.status)}}">
+          <td>{{task._id}}</td>
+          <td>{{task.task}}</td>
+          <td>{{task.date|date:"dd-MMM-yyyy"}}</td>
+          <td><input type="checkbox" ng-click="ChangeTaskStatus(task._id)"></td>
+          <td><img src="images/edit.png" ng-click="EditTask(task._id,task.task)"></td>
+          <td><img src="images/delete.png" ng-click="DeleteTask(task._id)" ng-show="taskDeleted!=task._id"></td>
+          <td><w3-test-directive ng-show="taskDeleted==task._id"></w3-test-directive></td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>
