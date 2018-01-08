@@ -1,0 +1,60 @@
+<div class="MainLoginContainer">
+  <div class="LoginContainer">
+    <div class="LoginContent">
+      <div>
+        <img src="images/loader.gif" ng-show="loader" class="loader">
+      </div>
+      <div class="panel-heading">
+               <div class="panel-title text-center">
+                  <h1 class="title">Register</h1>
+                </div>
+      </div>
+      <div class="panel-heading AppMessages" ng-show="Register_Messages">
+              <input type="text" ng-model="RegisterMessages">
+      </div>
+      <div>
+        <form name="registerform">
+          <div class="form-group">
+            <label for="user_email" class="cols-sm-2">Your Email</label>
+            <div class="cols-sm-7">
+              <div class="input-group">
+              <input type="email" class="form-control"  id="user_email"  placeholder="Enter your Email" ng-model="user_email" ng-focus="Register_Messages=false" name="user_email" required/>
+              </div>
+            </div>
+            <div class="cols-sm-3" ng-show="registerform.user_email.$invalid && registerform.user_email.$touched">
+              <span class="ValidationMessages">Please Provide Valid Email</span>
+            </div>
+          </div>
+          <div class="form-group">
+            <label for="user_password" class="cols-sm-2">Your Password</label>
+            <div class="cols-sm-7">
+              <div class="input-group">
+              <input type="password" class="form-control" id="user_password"  placeholder="Enter your Password" ng-focus="Register_Messages=false" ng-model="user_password" name="user_password" required/>
+              </div>
+            </div>
+            <div class="cols-sm-3" ng-show="registerform.user_password.$invalid && registerform.user_password.$touched">
+              <span class="ValidationMessages">Please Provide Valid Password</span>
+            </div>
+          </div>
+          <div class="form-group">
+            <label for="user_confirm_password" class="cols-sm-2">Confirm Password</label>
+            <div class="cols-sm-7">
+              <div class="input-group">
+              <input type="password" class="form-control" id="user_confirm_password"  placeholder="Confirm Password" ng-focus="Register_Messages=false" ng-model="user_confirm_password" name="user_confirm_password" required/>
+              </div>
+            </div>
+            <div class="cols-sm-3" ng-show="registerform.user_confirm_password.$invalid && registerform.user_confirm_password.$touched || registerform.user_confirm_password.$touched && user_confirm_password!=user_password">
+              <span class="ValidationMessages">Please Confirm Your Password</span>
+            </div>
+          </div>
+          <div class="form-group ">
+            <button type="button" class="btn btn-primary app_btn" ng-click="signup()" ng-disabled="registerform.$invalid ||  user_confirm_password!=user_password">Register</button>
+          </div>
+          <div>
+             <a ui-sref="mainpage_login" ui-sref-active="active">Login</a>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>

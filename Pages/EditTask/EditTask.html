@@ -1,0 +1,47 @@
+<div>
+  <div>
+    <img src="images/loader.gif" ng-show="loader" class="loader">
+  </div>
+    <div class="panel-heading">
+             <div class="panel-title text-center">
+                <h1 class="title">Edit Task</h1>
+              </div>
+    </div>
+    <div class="panel-heading AppMessages" ng-show="Edit_Messages">
+            <input type="text" ng-model="EditMessages">
+    </div>
+    <div>
+      <form name="EditTaskForm">
+        <div class="form-group">
+          <label for="EditTaskId" class="cols-sm-2">Your Selected Task Id</label>
+          <div class="cols-sm-7">
+            <div class="input-group">
+            <input type="text" class="form-control"  id="EditTaskId" ng-model="EditTaskId" ng-disabled="true"/>
+            </div>
+          </div>
+        </div>
+        <div class="form-group">
+          <label for="EditTaskName" class="cols-sm-2">Original Task Name</label>
+          <div class="cols-sm-7">
+            <div class="input-group">
+            <input type="text" class="form-control" id="EditTaskName"  ng-model="EditTaskName" ng-disabled="true"/>
+            </div>
+          </div>
+        </div>
+        <div class="form-group">
+          <label for="EditTaskNewName" class="cols-sm-2">Enter Task Name</label>
+          <div class="cols-sm-7">
+            <div class="input-group">
+            <input type="text" class="form-control" id="EditTaskNewName"  ng-model="EditTaskNewName" ng-focus="Edit_Messages=false" name="EditTaskNewName" required/>
+            </div>
+          </div>
+          <div class="cols-sm-3" ng-show="EditTaskForm.EditTaskNewName.$invalid && EditTaskForm.EditTaskNewName.$touched">
+          <span class="ValidationMessages">Please Provide Task Name</span>
+          </div>
+        </div>
+        <div class="form-group ">
+          <button type="button" class="btn btn-primary app_btn" ng-click="UpdateTask()" ng-disabled="EditTaskForm.$invalid">Edit Task</button>
+        </div>
+      </form>
+    </div>
+</div>
